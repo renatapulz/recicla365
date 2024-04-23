@@ -1,0 +1,11 @@
+{
+    "users": [
+      { "id": "1", "nome": "Renata Pulz", "sexo": "feminino", "cpf": "123.456.789-00", "data_nascimento": "2000-10-10", "email": "renata@example.com", "senha": "senha123", "endereco": {"logradouro": "Rua Exemplo, 123","bairro": "Bairro Exemplo","cidade": "Cidade Exemplo","estado": "Estado Exemplo","cep": "12345-678"}},
+      { "id": "2", "nome": "Adriano Pulz", "sexo": "masculino", "cpf": "123.456.789-11", "data_nascimento": "2011-11-11", "email": "adriano@example.com", "senha": "senha123", "endereco": {"logradouro": "Rua Exemplo, 123","bairro": "Bairro Exemplo","cidade": "Cidade Exemplo","estado": "Estado Exemplo","cep": "12345-678"}}
+
+    ],
+    "collection-points": [
+      { "id": "1", "emailUser": "renata@example.com", "nomeLocal": "Concap", "descricao": "Aterro Itacorubi", "endereco": {"logradouro": "Rua Exemplo, 123","bairro": "Bairro Exemplo","cidade": "Cidade Exemplo","estado": "Estado Exemplo","cep": "12345-678"}, "tiposResiduos": ["vidros", "plasticos", "madeira"]},
+      { "id": "2", "emailUser": "adriano@example.com", "nomeLocal": "Ponto Lagoa", "descricao": "Aterro Lagoa", "endereco": {"logradouro": "Rua Exemplo 2, 123","bairro": "Bairro Exemplo2","cidade": "Cidade Exemplo2","estado": "Estado Exemplo2","cep": "12345-678222"}, "tiposResiduos": ["metal", "plasticos"]}
+    ]
+  }
