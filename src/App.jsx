@@ -1,12 +1,15 @@
 import './App.css'
+import {Outlet} from "react-router-dom"
+import "./App.css";
 
 function App() {
 
   return (
     <>
-      <h1>Recicla365</h1>
-    </>
+      <p>header</p>
+      <Outlet />
+  </>
   )
 }
 
-export default App
+export default App;
