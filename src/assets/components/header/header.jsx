@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import Menu from "./menuHamburguer/menu";
+import Menu from "../menuHamburguer/menu";
 import "./style.css";
 
 
