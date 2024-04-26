@@ -19,7 +19,7 @@ const login = (email, password) => {
   fetch("http://localhost:3000/users")
     .then(response => response.json())
     .then(dados => {
-      const user = dados.find(user => user.email === email && user.senha === password);
+      const user = dados.find(user => user.email === email && user.password === password);
       if (user) {
         localStorage.setItem("userId", user.id);
         setUser(user.id);
@@ -32,28 +32,38 @@ const login = (email, password) => {
     .catch(error => console.error("Erro ao buscar usuários:", error));
 };
 
-const cadastro = (usuario) => {
+const cadastro = (name, sexo, cpf, nascimento, email, endereco, password) => {
   fetch("http://localhost:3000/users")
     .then(response => response.json())
     .then(dados => {
-      const userExists  = dados.find(user => user.email === usuario.email || user.cpf === usuario.cpf);
-      if (userExists ) {
+      const user = dados.find(user => user.cpf === cpf || user.email === email);
+      if (user) {
         alert("Email ou CPF já cadastrados.");
-      } else {
-        fetch("http://localhost:3000/users", {
-          method: "POST",
-          body: JSON.stringify(usuario),
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        })
-        .then(() => { 
-          alert("Usuário cadastrado com sucesso!");
-        })
-        .catch(() => alert("Erro ao cadastrar usuário!"));
+        return;
       }
+      return fetch("http://localhost:3000/users", {
+        method: "POST",
+        body: JSON.stringify({ name, sexo, cpf, nascimento, email, endereco, password }),
+        headers: {
+           'Content-Type': 'application/json',
+        },
+       })
+      .then(response => {
+        if (response.ok) {
+          alert("Usuário cadastrado com sucesso!");
+        } else {
+          throw new Error("Erro ao cadastrar usuário!");
+        }
+      })
+      .catch(error => {
+        console.error("Erro ao cadastrar usuário:", error.message);
+        alert("Erro ao cadastrar usuário!");
+      });
     })
-    .catch(error => console.error("Erro ao buscar usuários:", error)); 
+    .catch(error => {
+      console.error("Erro ao tentar cadastrar:", error.message);
+      alert("Erro ao tentar cadastrar. Tente novamente.");
+    });
 };
 
 const logout = () => {

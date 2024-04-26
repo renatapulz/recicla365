@@ -1,11 +1,131 @@
 {
-    "users": [
-      { "id": "1", "nome": "Renata Pulz", "sexo": "feminino", "cpf": "123.456.789-00", "data_nascimento": "2000-10-10", "email": "renata@example.com", "senha": "senha123", "endereco": {"logradouro": "Rua Exemplo, 123","bairro": "Bairro Exemplo","cidade": "Cidade Exemplo","estado": "Estado Exemplo","cep": "12345-678"}},
-      { "id": "2", "nome": "Adriano Pulz", "sexo": "masculino", "cpf": "123.456.789-11", "data_nascimento": "2011-11-11", "email": "adriano@example.com", "senha": "senha123", "endereco": {"logradouro": "Rua Exemplo, 123","bairro": "Bairro Exemplo","cidade": "Cidade Exemplo","estado": "Estado Exemplo","cep": "12345-678"}}
-
-    ],
-    "collection-points": [
-      { "id": "1", "userId": "1", "nomeLocal": "Concap", "descricao": "Aterro Itacorubi", "endereco": {"logradouro": "Rua Exemplo, 123","bairro": "Bairro Exemplo","cidade": "Cidade Exemplo","estado": "Estado Exemplo","cep": "12345-678"}, "tiposResiduos": ["vidros", "plasticos", "madeira"]},
-      { "id": "2", "userId": "2", "nomeLocal": "Ponto Lagoa", "descricao": "Aterro Lagoa", "endereco": {"logradouro": "Rua Exemplo 2, 123","bairro": "Bairro Exemplo2","cidade": "Cidade Exemplo2","estado": "Estado Exemplo2","cep": "12345-678222"}, "tiposResiduos": ["metal", "plasticos"]}
-    ]
-  }
+  "users": [
+    {
+      "id": "1",
+      "name": "Renata Pulz",
+      "sexo": "feminino",
+      "cpf": "123.456.789-00",
+      "data_nascimento": "2000-10-10",
+      "email": "renata@example.com",
+      "password": "senha123",
+      "endereco": "Rua Exemplo"
+    },
+    {
+      "id": "2",
+      "name": "Adriano Pulz",
+      "sexo": "masculino",
+      "cpf": "123.456.789-11",
+      "data_nascimento": "2011-11-11",
+      "email": "adriano@example.com",
+      "password": "senha123",
+      "endereco": "Rua Exemplo2"
+    },
+    {
+      "name": "mariana reis",
+      "sexo": "Feminino",
+      "cpf": "885.143.370-41",
+      "nascimento": "10/10/20",
+      "email": "amari@exameple.com",
+      "endereco": "rua lalala",
+      "password": " xxz",
+      "id": "2Wtz1VJ"
+    },
+    {
+      "name": "Renata Martins Dantas Pulz",
+      "sexo": "Feminino",
+      "cpf": "885.143.370-41",
+      "nascimento": "101020",
+      "email": "renatadpulz@gmail.com",
+      "endereco": "rua Salvatina Feliciana dos Santos",
+      "password": "2222",
+      "id": "eXG2SnB"
+    },
+    {
+      "name": "Renata Martins Dantas Pulz",
+      "sexo": "Feminino",
+      "cpf": "885.143.370-41",
+      "nascimento": "101020",
+      "email": "renatadpulz@gmail.com",
+      "endereco": "rua Salvatina Feliciana dos Santos",
+      "password": "2222",
+      "id": "qcYkyu3"
+    },
+    {
+      "name": "Renata Martins Dantas Pulz",
+      "sexo": "Feminino",
+      "cpf": "885.143.370-41",
+      "nascimento": "101020",
+      "email": "renatadpulz@gmail.com",
+      "endereco": "rua Salvatina Feliciana dos Santos",
+      "password": "jhbhjbj",
+      "id": "VkgoOEl"
+    },
+    {
+      "name": "jaqueline silveira",
+      "sexo": "Feminino",
+      "cpf": "503.864.080-09",
+      "nascimento": "101020",
+      "email": "jaqueline.silveira@example.com",
+      "endereco": "rua Salvatina Feliciana dos Santos",
+      "password": "23243",
+      "id": "BNgvGkU"
+    },
+    {
+      "name": "Lilian Rios",
+      "sexo": "Feminino",
+      "cpf": "866.227.510-99",
+      "nascimento": "101020",
+      "email": "jaqueline.silveira2@example.com",
+      "endereco": "rua Salvatina Feliciana dos Santos",
+      "password": "fvdvd",
+      "id": "o-ZWG7X"
+    },
+    {
+      "name": "tadeu sc",
+      "sexo": "Masculino",
+      "cpf": "209.482.320-21",
+      "nascimento": "10/10/88",
+      "email": "tadeu@examp.com",
+      "endereco": "rua lalala",
+      "password": "teste123",
+      "id": "FOAvxlJ"
+    }
+  ],
+  "collection-points": [
+    {
+      "id": "1",
+      "userId": "1",
+      "nomeLocal": "Concap",
+      "descricao": "Aterro Itacorubi",
+      "endereco": {
+        "logradouro": "Rua Exemplo, 123",
+        "bairro": "Bairro Exemplo",
+        "cidade": "Cidade Exemplo",
+        "estado": "Estado Exemplo",
+        "cep": "12345-678"
+      },
+      "tiposResiduos": [
+        "vidros",
+        "plasticos",
+        "madeira"
+      ]
+    },
+    {
+      "id": "2",
+      "userId": "2",
+      "nomeLocal": "Ponto Lagoa",
+      "descricao": "Aterro Lagoa",
+      "endereco": {
+        "logradouro": "Rua Exemplo 2, 123",
+        "bairro": "Bairro Exemplo2",
+        "cidade": "Cidade Exemplo2",
+        "estado": "Estado Exemplo2",
+        "cep": "12345-678222"
+      },
+      "tiposResiduos": [
+        "metal",
+        "plasticos"
+      ]
+    }
+  ]
+}
