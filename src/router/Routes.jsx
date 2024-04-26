@@ -2,14 +2,15 @@ import { createBrowserRouter } from 'react-router-dom'
 import App from '../App.jsx'
 import Home from '../pages/Home/Home.jsx';
 import GerenciarPontos from '../pages/GerenciarPontos/GerenciarPontos.jsx'
-import Login from '../pages/Login/login.jsx';
+import LoginPage from '../pages/Login/LoginPage.jsx';
+import CadastroPage from '../pages/Cadastro/CadastroPage.jsx'
 import PropTypes from 'prop-types';
 import { useContext } from "react";
 import { AuthContext } from '../hooks/AuthContext.jsx';
 
 export const Private = ({ Item }) => {
     const { logado } = useContext(AuthContext)
-    return logado ? <Item /> : <Login />;
+    return logado ? <Item /> : <LoginPage />;
 };
 
 Private.propTypes = {
@@ -32,11 +33,11 @@ const routers = createBrowserRouter([
             },
             {
                 path: "/cadastro",
-                element: <Home />,
+                element: <CadastroPage />,
             },
             {
                 path: "/login",
-                element: <Login />,
+                element: <LoginPage />,
             },
         ]
     }

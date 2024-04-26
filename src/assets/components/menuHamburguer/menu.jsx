@@ -20,7 +20,7 @@ function Menu() {
                 <div className="list">
                     <ul className="listItems">
                         <li><Link to="/" className="link-menu">Pontos de coleta</Link></li>
-                        <li><Link to="/cadastro" className="link-menu">Cadastrar Pontos</Link></li>
+                        <li><Link to="/login" className="link-menu">Cadastrar Pontos</Link></li>
                     </ul>
                 </div>
             </div>

@@ -24,8 +24,9 @@ const login = (email, password) => {
         localStorage.setItem("userId", user.id);
         setUser(user.id);
         setLogado(true);
+        alert("Logouuuu");
       } else {
-        return("Email ou senha incorretos.");
+        alert("Email ou senha incorretos.");
       }
     })
     .catch(error => console.error("Erro ao buscar usuários:", error));
