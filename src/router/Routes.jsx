@@ -2,6 +2,7 @@ import { createBrowserRouter } from 'react-router-dom'
 import App from '../App.jsx'
 import Home from '../pages/Home/Home.jsx';
 import GerenciarPontos from '../pages/GerenciarPontos/GerenciarPontos.jsx'
+import EditarPonto from '../pages/EdicaoPonto/EditarPonto.jsx';
 import LoginPage from '../pages/Login/LoginPage.jsx';
 import CadastroPage from '../pages/Cadastro/CadastroPage.jsx'
 import PropTypes from 'prop-types';
@@ -30,6 +31,10 @@ const routers = createBrowserRouter([
             {
                 path: "/gerenciamento",
                 element: <Private Item={GerenciarPontos} />,
+            },
+            {
+                path: "/edicao",
+                element: <Private Item={EditarPonto} />,
             },
             {
                 path: "/cadastro",
