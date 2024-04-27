@@ -17,7 +17,7 @@ function CadastroPage() {
         <div>
             <div className="container">
                 <form className="signup-screen" onSubmit={handleSubmit((handleSignupSubmit))}>
-                    <h3>Registre-se para criar pontos de coleta</h3>
+                    <h3 className="title-register">Registre-se para criar pontos de coleta</h3>
                     <div>
                         <label>Nome</label>
                         <input type="text"

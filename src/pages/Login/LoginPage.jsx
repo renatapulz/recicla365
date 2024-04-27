@@ -18,7 +18,7 @@ function LoginPage() {
         <div>
             <div className="container">
                 <form className="login-screen" onSubmit={handleSubmit((handleLoginSubmit))}>
-                    <h3>Faça seu login</h3>
+                    <h3 className="title-register">Faça seu login</h3>
                     <div>
                         <label>Email</label>
                         <input type="text"
