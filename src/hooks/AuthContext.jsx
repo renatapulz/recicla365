@@ -15,22 +15,33 @@ export const AuthContextProvider = ({ children }) => {
 
   }, []);
 
-const login = (email, password) => {
-  fetch("http://localhost:3000/users")
-    .then(response => response.json())
-    .then(dados => {
-      const user = dados.find(user => user.email === email && user.password === password);
-      if (user) {
-        localStorage.setItem("userId", user.id);
-        setUser(user.id);
-        setLogado(true);
-        alert("Logouuuu");
-      } else {
-        alert("Email ou senha incorretos.");
+  const login = async (email, password) => {
+    try {
+      const response = await fetch("http://localhost:3000/users");
+      const dados = await response.json();
+      
+      let usuarioExiste = false;
+      dados.forEach(user => {
+        if(user.email === email) {
+          usuarioExiste = true;
+          if (user.password === password) {
+            localStorage.setItem("userId", user.id);
+            setLogado(true);
+            window.location.href = "/gerenciamento";
+          } else {
+            alert("Senha incorreta!");
+          }
+        }
+      });
+  
+      if (!usuarioExiste) {
+        alert("Usuário não cadastrado.");
       }
-    })
-    .catch(error => console.error("Erro ao buscar usuários:", error));
-};
+    } catch (error) {
+      console.error("Erro ao buscar usuários:", error);
+    }
+  };
+  
 
 const cadastro = (name, sexo, cpf, nascimento, email, endereco, password) => {
   fetch("http://localhost:3000/users")
@@ -50,7 +61,8 @@ const cadastro = (name, sexo, cpf, nascimento, email, endereco, password) => {
        })
       .then(response => {
         if (response.ok) {
-          alert("Usuário cadastrado com sucesso!");
+          alert("Usuário cadastrado com sucesso! Por favor, efetue o login.");
+          window.location.href = "/login";
         } else {
           throw new Error("Erro ao cadastrar usuário!");
         }

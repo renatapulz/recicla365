@@ -9,9 +9,9 @@ function LoginPage() {
     const { register, handleSubmit, formState: { errors, isSubmitted } } = useForm();
     const { login } = useContext(AuthContext);
 
-    const handleLoginSubmit = (data) => {
+    const handleLoginSubmit = async (data) => {
         const { email, password } = data;
-        login(email, password);
+        await login(email, password);
     };
 
     return (
