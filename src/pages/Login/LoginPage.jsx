@@ -38,8 +38,12 @@ function LoginPage() {
                         {errors.password && errors.password.type === "required" && isSubmitted && (<p className="error-message">Campo obrigatório.</p>)}
                         {errors.password && errors.password.type === "maxLength" && isSubmitted && (<p className="error-message">A senha não pode ter mais de 8 caracteres.</p>)}
                     </div>
-                    <Link to="/cadastro" className="link-signup"><p>Não tem conta? Registre-se?</p></Link>
-                    <CustomButton type="submit" buttonText="Entrar" />
+                    <div className="space">
+                        <Link to="/cadastro" className="link-signup"><p>Não tem conta? Registre-se?</p></Link>
+                    </div>
+                    <div>
+                        <CustomButton type="submit" buttonText="Entrar" />
+                    </div>
                 </form>
             </div>
         </div>

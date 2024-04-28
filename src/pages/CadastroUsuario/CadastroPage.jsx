@@ -3,6 +3,8 @@ import { AuthContext } from '../../hooks/AuthContext';
 import CustomButton from "../../assets/components/buttom/buttom";
 import { useForm } from "react-hook-form";
 import "./style.css";
+import { Link } from "react-router-dom";
+import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 
 function CadastroPage() {
     const { register, handleSubmit, formState: { errors, isSubmitted } } = useForm();
@@ -17,6 +19,7 @@ function CadastroPage() {
         <div>
             <div className="container">
                 <form className="signup-screen" onSubmit={handleSubmit((handleSignupSubmit))}>
+                    <Link to="/login"><KeyboardBackspaceIcon className="icon-return" sx={{ fontSize: 30 }}/></Link>
                     <h3 className="title-register">Registre-se para criar pontos de coleta</h3>
                     <div>
                         <label>Nome</label>
@@ -82,7 +85,9 @@ function CadastroPage() {
                         {errors.password && errors.password.type === "required" && isSubmitted && (<p className="error-message">Campo obrigatório.</p>)}
                         {errors.password && errors.password.type === "maxLength" && isSubmitted && (<p className="error-message">A senha não pode ter mais de 8 caracteres.</p>)}
                     </div>
-                    <CustomButton type="submit" buttonText="Entrar" />
+                    <div className="align-buttom">
+                        <CustomButton type="submit" buttonText="Salvar" />
+                    </div>
                 </form>
             </div>
         </div>
