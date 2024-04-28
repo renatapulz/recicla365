@@ -25,7 +25,7 @@ function Menu() {
                             <>
                                 <li><Link to="/" className="link-menu" onClick={toggleMenu}>Pontos de coleta</Link></li>
                                 <li><Link to="/gerenciamento" className="link-menu" onClick={toggleMenu}>Gerenciar pontos</Link></li>
-                                <li><buttom onClick={() => { toggleMenu(); logout(); }} className="link-menu">Sair</buttom></li>
+                                <li><Link to="/login" onClick={() => { toggleMenu(); logout(); }} className="link-menu">Sair</Link></li>
                             </>
                         ) : (
                             <>
