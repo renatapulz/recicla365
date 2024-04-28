@@ -78,30 +78,34 @@
       "nomeLocal": "Concap",
       "descricao": "Aterro Itacorubi",
       "logradouro": "Rua Exemplo, 123",
-      "bairro": "Bairro Exemplo",
-      "cidade": "Cidade Exemplo",
-      "estado": "Estado Exemplo",
+      "bairro": "Itacorubi",
+      "cidade": "Florianópolis",
+      "estado": "SC",
       "cep": "12345-678",
       "tiposResiduos": [
         "vidros",
         "plasticos",
         "madeira"
-      ]
+      ],
+      "latitude": "34° 36' 13'' S",
+      "longitude": "58° 22' 54'' O"
     },
     {
       "id": 2,
       "userId": 2,
-      "nomeLocal": "Ponto Lagoa",
+      "nomeLocal": "Aterro Lagoa",
       "descricao": "Aterro Lagoa",
-      "logradouro": "Rua Exemplo 2, 123",
-      "bairro": "Bairro Exemplo2",
-      "cidade": "Cidade Exemplo2",
-      "estado": "Estado Exemplo2",
-      "cep": "12345-678222",
+      "logradouro": "Rua Exemplo, 456",
+      "bairro": "Lagoa da Conceição",
+      "cidade": "Florianópolis",
+      "estado": "SC",
+      "cep": "12345-000",
       "tiposResiduos": [
-        "metal",
-        "plasticos"
-      ]
+        "vidros",
+        "madeira"
+      ],
+      "latitude": "34° 36' 22'' S",
+      "longitude": "58° 00' 54'' O"
     }
   ]
 }
