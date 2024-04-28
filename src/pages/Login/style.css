@@ -25,14 +25,13 @@ label {
     width: calc(100% - 10px);
     background-color: #ECECF1;
     border-radius: 4px;
-    padding: 8px 16px;
-    margin-bottom: 20px;
+    padding: 8px;
+    margin-bottom: 10px;
 }
 
 .error-message {
-    color: black;
+    color: #00008B;
     font-weight: bolder;
-    padding: 5px;
 }
 
 .title-register {
@@ -43,9 +42,12 @@ label {
 }
 
 .link-signup {
-    margin-bottom: 10px;
-    padding-right: 20px;
+    padding-right: 5px;
     text-align: right;
     color: #FFFFFF;
     text-decoration: none;
+}
+
+.space {
+    margin-top: 10px;
 }

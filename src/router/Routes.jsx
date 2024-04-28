@@ -4,7 +4,7 @@ import Home from '../pages/Home/Home.jsx';
 import GerenciarPontos from '../pages/GerenciarPontos/GerenciarPontos.jsx'
 import EditarPonto from '../pages/EdicaoPonto/EditarPonto.jsx';
 import LoginPage from '../pages/Login/LoginPage.jsx';
-import CadastroPage from '../pages/Cadastro/CadastroPage.jsx'
+import CadastroPage from '../pages/CadastroUsuario/CadastroPage.jsx'
 import PropTypes from 'prop-types';
 import { useContext } from "react";
 import { AuthContext } from '../hooks/AuthContext.jsx';
