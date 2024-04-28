@@ -20,11 +20,11 @@ export const CollectionPointContextProvider = ({ children }) => {
             .catch(erro => console.log(erro))
     }
 
-    const createCollectionPoints = (nomeLocal, descricao, logradouro, bairro, cidade, estado, cep, tiposResiduos) => {
+    const createCollectionPoints = (nomeLocal, descricao, logradouro, bairro, cidade, estado, cep, tiposResiduos, latitude, longitude ) => {
         const userId = localStorage.getItem("userId");
         fetch("http://localhost:3000/collection-points", {
             method: "POST",
-            body: JSON.stringify({ userId, nomeLocal, descricao, logradouro, bairro, cidade, estado, cep, tiposResiduos }),
+            body: JSON.stringify({ userId, nomeLocal, descricao, logradouro, bairro, cidade, estado, cep, tiposResiduos, latitude, longitude }),
             headers: {
                 'Content-Type': 'application/json',
             },

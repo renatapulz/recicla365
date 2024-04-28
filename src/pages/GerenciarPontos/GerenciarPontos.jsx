@@ -1,12 +1,12 @@
-import React from "react";
+import CardPoints from "../../assets/components/card/CardPoints"
 
 function GerenciarPontos() {
 
-    return (
-      <div>
-          <h1>Gerenciar Pontos - não liberada</h1>
-      </div>
-    )
-  }
-  
-  export default GerenciarPontos;
+  return (
+    <div className="container">
+      <CardPoints exibirIcones={true}/>
+    </div>
+  )
+}
+
+export default GerenciarPontos;

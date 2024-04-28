@@ -86,22 +86,9 @@
         "vidros",
         "plasticos",
         "madeira"
-      ]
-    },
-    {
-      "id": 2,
-      "userId": 2,
-      "nomeLocal": "Ponto Lagoa",
-      "descricao": "Aterro Lagoa",
-      "logradouro": "Rua Exemplo 2, 123",
-      "bairro": "Bairro Exemplo2",
-      "cidade": "Cidade Exemplo2",
-      "estado": "Estado Exemplo2",
-      "cep": "12345-678222",
-      "tiposResiduos": [
-        "metal",
-        "plasticos"
-      ]
+      ],
+      "latitude": "34° 36' 13'' S",
+      "longitude": "58° 22' 54'' O"
     }
   ]
 }
