@@ -3,8 +3,11 @@ import "./style.css";
 import PropTypes from 'prop-types';
 import DeleteIcon from '@mui/icons-material/Delete';
 import ModeEditIcon from '@mui/icons-material/ModeEdit';
+import { useContext } from "react";
+import { CollectionPointContext } from "../../../hooks/CollectionPointContext"
 
 function CardPoints( { exibirIcones, Points } ) {
+  const { deleteCollectionPoints } = useContext(CollectionPointContext)
     return (
         <div className="card_container">
             <h3 className="title-card">Ponto de Coleta:</h3>
@@ -19,7 +22,7 @@ function CardPoints( { exibirIcones, Points } ) {
                 <div className="info-card">Longitude: {Points.longitude}</div>
                 <div className="info-card">Tipos de resíduos aceitos: {Points.tiposResiduos.join(', ')}
                 </div>
-                {exibirIcones ? (<div className='icons'><DeleteIcon sx={{ fontSize: 25 }} className="icon-card" /> <ModeEditIcon sx={{ fontSize: 25 }} className="icon-card" /></div>) : null}
+                {exibirIcones ? (<div className='icons'><DeleteIcon sx={{ fontSize: 25 }} className="icon-card" onClick={() => deleteCollectionPoints(Points.id)}/> <ModeEditIcon sx={{ fontSize: 25 }} className="icon-card" /></div>) : null}
             </div>
       </div>
     )
@@ -29,6 +32,8 @@ function CardPoints( { exibirIcones, Points } ) {
   CardPoints.propTypes = {
     exibirIcones: PropTypes.bool.isRequired,
     Points: PropTypes.exact({
+        id: PropTypes.number,
+        userId: PropTypes.number,
         nomeLocal: PropTypes.string.isRequired,
         descricao: PropTypes.string.isRequired,
         logradouro: PropTypes.string.isRequired,

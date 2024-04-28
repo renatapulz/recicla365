@@ -24,7 +24,7 @@ function Menu() {
                         { logado ? (
                             <>
                                 <li><Link to="/" className="link-menu" onClick={toggleMenu}>Pontos de coleta</Link></li>
-                                <li><Link to="/gerenciamento" className="link-menu" onClick={toggleMenu}>Gerenciar pontos</Link></li>
+                                <li><Link to="/gerenciamento" className="link-menu" onClick={toggleMenu}>Meus pontos</Link></li>
                                 <li><Link to="/login" onClick={() => { toggleMenu(); logout(); }} className="link-menu">Sair</Link></li>
                             </>
                         ) : (
