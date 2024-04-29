@@ -5,6 +5,7 @@ import GerenciarPontos from '../pages/GerenciarPontos/GerenciarPontos.jsx'
 import EditarPonto from '../pages/EdicaoPonto/EditarPonto.jsx';
 import LoginPage from '../pages/Login/LoginPage.jsx';
 import CadastroPage from '../pages/CadastroUsuario/CadastroPage.jsx'
+import CadastroPontoPage from '../pages/CadastroPonto/CadastroPontoPage.jsx';
 import PropTypes from 'prop-types';
 import { useContext } from "react";
 import { AuthContext } from '../hooks/AuthContext.jsx';
@@ -37,13 +38,17 @@ const routers = createBrowserRouter([
                 element: <Private Item={EditarPonto} />,
             },
             {
-                path: "/cadastro",
+                path: "/cadastro-user",
                 element: <CadastroPage />,
             },
             {
                 path: "/login",
                 element: <LoginPage />,
             },
+            {
+                path: "/cadastro-ponto",
+                element: <Private Item={CadastroPontoPage} />,
+            }
         ]
     }
 ]);

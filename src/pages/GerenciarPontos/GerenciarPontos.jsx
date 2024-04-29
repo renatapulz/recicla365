@@ -15,7 +15,7 @@ function GerenciarPontos() {
   return (
     <div className="container">
       <div className="icons">
-        <Link to="/login"><AddCircleIcon className="icon-card" sx={{ fontSize: 50 }}/></Link>
+        <Link to="/cadastro-ponto"><AddCircleIcon className="icon-card" sx={{ fontSize: 50 }}/></Link>
       </div>
       {Array.isArray(pontoColeta) && pontoColeta.length > 0 ? (
         pontoColeta.map((ponto, index) => (

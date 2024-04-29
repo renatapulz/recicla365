@@ -1,111 +1,64 @@
 {
   "users": [
     {
-      "id": 1,
-      "name": "Renata Pulz",
-      "sexo": "feminino",
-      "cpf": "123.456.789-00",
-      "data_nascimento": "2000-10-10",
-      "email": "renata@example.com",
-      "password": "senha123",
-      "endereco": "Rua Exemplo"
-    },
-    {
-      "id": 2,
-      "name": "Adriano Pulz",
-      "sexo": "masculino",
-      "cpf": "123.456.789-11",
-      "data_nascimento": "2011-11-11",
-      "email": "adriano@example.com",
-      "password": "senha123",
-      "endereco": "Rua Exemplo2"
-    },
-    {
-      "name": "mariana reis",
-      "sexo": "Feminino",
-      "cpf": "885.143.370-41",
-      "nascimento": "10/10/20",
-      "email": "amari@exameple.com",
-      "endereco": "rua lalala",
-      "password": "xxz",
-      "id": 3
-    },
-    {
-      "name": "jaqueline silveira",
-      "sexo": "Feminino",
-      "cpf": "503.864.080-09",
-      "nascimento": "101020",
-      "email": "jaqueline.silveira@example.com",
-      "endereco": "rua Salvatina Feliciana dos Santos",
-      "password": "23243",
-      "id": 4
-    },
-    {
-      "name": "Lilian Rios",
-      "sexo": "Feminino",
-      "cpf": "866.227.510-99",
-      "nascimento": "101020",
-      "email": "jaqueline.silveira2@example.com",
-      "endereco": "rua Salvatina Feliciana dos Santos",
-      "password": "fvdvd",
-      "id": 5
-    },
-    {
-      "name": "tadeu sc",
+      "name": "adriano pulz",
       "sexo": "Masculino",
-      "cpf": "491.806.060-91",
-      "nascimento": "10/10/88",
-      "email": "amari2@exameple.com",
-      "endereco": "rua lalala",
-      "password": "111",
-      "id": 6
+      "cpf": "499.570.430-21",
+      "nascimento": "10/10/20",
+      "email": "adriano@example.com",
+      "endereco": "rua Salvatina Feliciana dos Santos",
+      "password": "123",
+      "id": 1
     },
     {
-      "name": "renata valid",
+      "name": "renata martins dantas pulz",
       "sexo": "Feminino",
-      "cpf": "741.948.120-26",
-      "nascimento": "11/10/90",
-      "email": "renata.pulz+69@raizen.com",
-      "endereco": "Rua Salvatina Feliciana dos Santos",
-      "password": "32145",
-      "id": 7
+      "cpf": "288.528.950-35",
+      "nascimento": "10/10/20",
+      "email": "renata.pulz@example.com",
+      "endereco": "rua Salvatina Feliciana dos Santos",
+      "password": "123",
+      "id": 2
     }
   ],
   "collection-points": [
     {
-      "id": 1,
-      "userId": 1,
-      "nomeLocal": "Concap",
-      "descricao": "Aterro Itacorubi",
-      "logradouro": "Rua Exemplo, 123",
+      "userId": "1",
+      "nomeLocal": "concap",
+      "descricao": "ponto de coleta do itacorubi",
+      "logradouro": "rua bla",
       "bairro": "Itacorubi",
       "cidade": "Florianópolis",
       "estado": "SC",
-      "cep": "12345-678",
+      "cep": "88034600",
       "tiposResiduos": [
-        "vidros",
-        "plasticos",
-        "madeira"
+        "Oleo",
+        "Madeira",
+        "Papel"
       ],
-      "latitude": "34° 36' 13'' S",
-      "longitude": "58° 22' 54'' O"
+      "latitude": "-27.5920747",
+      "longitude": "-344424244",
+      "id": 1
     },
     {
-      "id": 2,
-      "userId": 2,
-      "nomeLocal": "Aterro Lagoa",
-      "descricao": "Aterro Lagoa",
-      "logradouro": "Rua Exemplo, 456",
-      "bairro": "Lagoa da Conceição",
+      "userId": "1",
+      "nomeLocal": "ponto lagoa",
+      "descricao": "ponto de coleta que fica na lagoa ",
+      "logradouro": "Avenida Buriti",
+      "bairro": "Itacorubi",
       "cidade": "Florianópolis",
-      "estado": "SC",
-      "cep": "12345-000",
+      "estado": "Santa Catarina",
+      "cep": "88035500",
       "tiposResiduos": [
-        "vidros",
-        "madeira"
+        "Oleo",
+        "Eletronicos",
+        "Hospitar"
       ],
-      "latitude": "34° 36' 22'' S",
-      "longitude": "58° 00' 54'' O"
+      "latitude": "-27.5920747",
+      "longitude": "-48.4982794",
+      "numero": "125",
+      "complemento": "casa amarela",
+      "id": 2
     }
   ]
 }
