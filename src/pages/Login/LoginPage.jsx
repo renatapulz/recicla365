@@ -39,7 +39,7 @@ function LoginPage() {
                         {errors.password && errors.password.type === "maxLength" && isSubmitted && (<p className="error-message">A senha não pode ter mais de 8 caracteres.</p>)}
                     </div>
                     <div className="space">
-                        <Link to="/cadastro" className="link-signup"><p>Não tem conta? Registre-se?</p></Link>
+                        <Link to="/cadastro-user" className="link-signup"><p>Não tem conta? Registre-se?</p></Link>
                     </div>
                     <div>
                         <CustomButton type="submit" buttonText="Entrar" />

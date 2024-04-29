@@ -1,0 +1,5 @@
+.select-form {
+    width: calc(100% - 10px);
+    border-radius: 4px;
+    margin-bottom: 15px;
+}
