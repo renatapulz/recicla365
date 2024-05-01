@@ -59,10 +59,11 @@ Aqui está uma prévia do projeto:
 ![GIF exibindo as funcionalidades do projeto Recila365](/giff.gif "GIF Recila365")
 
 
+## Quais melhorias podem ser aplicadas
 
-
-
-
+- Componentizar a busca do CEP
+- Componentizar o formulário
+- CRUD para o usuário
 
 
 
