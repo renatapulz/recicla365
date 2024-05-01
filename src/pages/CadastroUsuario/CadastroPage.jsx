@@ -19,7 +19,7 @@ function CadastroPage() {
         <div>
             <div className="container">
                 <form className="form-screen" onSubmit={handleSubmit((handleSignupSubmit))}>
-                    <Link to="/login"><KeyboardBackspaceIcon className="icon-return" sx={{ fontSize: 30 }}/></Link>
+                    <Link to="/login"><KeyboardBackspaceIcon className="icon-return" sx={{ fontSize: 50 }}/></Link>
                     <h3 className="title-register">Registre-se para criar pontos de coleta</h3>
                     <div>
                         <label>Nome</label>

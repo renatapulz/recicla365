@@ -5,6 +5,7 @@ export const AuthContext = createContext();
 export const AuthContextProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [logado, setLogado] = useState(false);
+  const [userLength, setUserLength] = useState();
 
   useEffect(() => {
     const userId = localStorage.getItem("userId");
@@ -14,6 +15,13 @@ export const AuthContextProvider = ({ children }) => {
     }
 
   }, []);
+
+  const getUsersLength = () => {
+    fetch("http://localhost:3000/users")
+        .then(response => response.json())
+        .then(dados => {setUserLength(dados.length)})
+        .catch(erro => console.log(erro));
+}
 
   const login = async (email, password) => {
     try {
@@ -89,7 +97,7 @@ const isLoggedIn = () => {
 };
 
 return (
-  <AuthContext.Provider value={{ user, logado, setLogado, login, logout, isLoggedIn, cadastro }}>
+  <AuthContext.Provider value={{ user, logado, setLogado, login, logout, isLoggedIn, cadastro, getUsersLength, userLength }}>
     {children}
   </AuthContext.Provider>
 )

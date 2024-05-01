@@ -36,7 +36,7 @@ function EditarPonto() {
             <div className="container">
                 <form className="form-screen" onSubmit={handleSubmit(handleEditSubmit)} >
                     <Link to="/gerenciamento"><KeyboardBackspaceIcon className="icon-return" sx={{ fontSize: 30 }} /></Link>
-                    <h3 className="title-register">Cadastro de Ponto de Coleta</h3>
+                    <h3 className="title-register">Edição do Ponto de Coleta</h3>
                     <div>
                         <label>Nome</label>
                         <input type="text"

@@ -1,6 +1,7 @@
 import { createBrowserRouter } from 'react-router-dom'
 import App from '../App.jsx'
-import Home from '../pages/Home/Home.jsx';
+import HomeList from '../pages/HomeList/HomeList.jsx';
+import MapHomePage from '../pages/Home-Mapa/MapHomePage.jsx';
 import GerenciarPontos from '../pages/GerenciarPontos/GerenciarPontos.jsx'
 import EditarPonto from '../pages/EdicaoPonto/EditarPonto.jsx';
 import LoginPage from '../pages/Login/LoginPage.jsx';
@@ -27,7 +28,11 @@ const routers = createBrowserRouter([
         children: [
             {
                 path: "/",
-                element: <Home />,
+                element: <MapHomePage />,
+            },
+            {
+                path: "/list",
+                element: <HomeList />,
             },
             {
                 path: "/gerenciamento",

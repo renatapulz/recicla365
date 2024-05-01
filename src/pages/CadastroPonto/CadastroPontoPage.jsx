@@ -34,7 +34,7 @@ function CadastroPontoPage() {
         <div>
             <div className="container">
                 <form className="form-screen" onSubmit={handleSubmit(handleSignupSubmit)}>
-                    <Link to="/gerenciamento"><KeyboardBackspaceIcon className="icon-return" sx={{ fontSize: 30 }} /></Link>
+                    <Link to="/gerenciamento"><KeyboardBackspaceIcon className="icon-return" sx={{ fontSize: 50 }} /></Link>
                     <h3 className="title-register">Cadastro de Ponto de Coleta</h3>
                     <div>
                         <label>Nome</label>

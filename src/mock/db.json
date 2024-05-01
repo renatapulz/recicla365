@@ -23,42 +23,88 @@
   ],
   "collection-points": [
     {
-      "userId": "1",
-      "nomeLocal": "concap",
-      "descricao": "ponto de coleta do itacorubi",
-      "logradouro": "rua bla",
-      "bairro": "Itacorubi",
-      "cidade": "Florianópolis",
-      "estado": "SC",
-      "cep": "88034600",
-      "tiposResiduos": [
-        "Oleo",
-        "Madeira",
-        "Papel"
-      ],
-      "latitude": "-27.5920747",
-      "longitude": "-344424244",
-      "id": 1
-    },
-    {
-      "userId": "1",
-      "nomeLocal": "ponto lagoa",
-      "descricao": "ponto de coleta que fica na lagoa ",
+      "userId": "2",
+      "nomeLocal": "ponto trind",
+      "descricao": "Ponto de coleta na trindade",
       "logradouro": "Avenida Buriti",
-      "bairro": "Itacorubi",
+      "bairro": "Trindade",
       "cidade": "Florianópolis",
       "estado": "Santa Catarina",
       "cep": "88035500",
       "tiposResiduos": [
-        "Oleo",
-        "Eletronicos",
-        "Hospitar"
+        "Pilha",
+        "Madeira"
       ],
       "latitude": "-27.5920747",
       "longitude": "-48.4982794",
       "numero": "125",
       "complemento": "casa amarela",
-      "id": 2
+      "id": 3
+    },
+    {
+      "userId": "1",
+      "nomeLocal": "ponto teste",
+      "descricao": "blbabla",
+      "logradouro": "rua bla",
+      "bairro": "compeche",
+      "cidade": "Florianópolis",
+      "estado": "SC",
+      "cep": "88034500",
+      "tiposResiduos": [
+        "Pilha"
+      ],
+      "latitude": "-27.6667",
+      "longitude": "-48.4833",
+      "numero": "33",
+      "complemento": "vdvvdf",
+      "id": 4
+    },
+    {
+      "userId": "1",
+      "nomeLocal": "Ponto Ingleses",
+      "descricao": "kjskncscjscjdncks",
+      "logradouro": "rua bla",
+      "bairro": "compeche",
+      "cidade": "Florianópolis",
+      "estado": "SC",
+      "cep": "88034500",
+      "tiposResiduos": [
+        "Papel",
+        "Lampadas",
+        "Eletronicos",
+        "Hospitar",
+        "Material-construcao",
+        "Pilha",
+        "Aluminio",
+        "Madeira",
+        "Vidro",
+        "Oleo"
+      ],
+      "latitude": "-27.4473",
+      "longitude": "-48.3889",
+      "numero": "33",
+      "complemento": "vdvvdf",
+      "id": 5
+    },
+    {
+      "userId": "1",
+      "nomeLocal": "ponto Canas",
+      "descricao": "Ponto de coleta em Canaasvieiras",
+      "logradouro": "rua blablablabla",
+      "bairro": "canasvieiras",
+      "cidade": "Florianópolis",
+      "estado": "SC",
+      "cep": "88034500",
+      "tiposResiduos": [
+        "Vidro",
+        "Madeira",
+        "Papel"
+      ],
+      "latitude": "-27.4351",
+      "longitude": "-48.4841",
+      "numero": "334",
+      "complemento": "",
+      "id": 6
     }
   ]
 }
