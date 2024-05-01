@@ -19,6 +19,16 @@
       "endereco": "rua Salvatina Feliciana dos Santos",
       "password": "123",
       "id": 2
+    },
+    {
+      "name": "julia dantas pulz",
+      "sexo": "Feminino",
+      "cpf": "419.839.500-41",
+      "nascimento": "22/11/13",
+      "email": "julia@example.com",
+      "endereco": "Avenida Buriti, 125",
+      "password": "123",
+      "id": 3
     }
   ],
   "collection-points": [

@@ -1,18 +1,32 @@
-.dashboard-summary {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin: 10px auto;
-}
-
-.card-home {
+.pontos-info {
     border: 2px solid #ececf1;
-    border-radius: 4px;
-    background-color: #ececf1;
+    border-radius: 6px;
+    background-color: rgb(236, 236, 241, .75);
     padding: 10px;
     max-width: 400px;
-    margin: 10px 0;
+    position: absolute;
+    bottom: 30px;
+    right: 20px;
+    z-index: 9999999;
+
+    .item {
+        font-size: 13px;
+        margin-top: 7px;
+        color: #36909A;
+        font-weight: 700;
+
+        &:first-child {
+            margin-top: 0;
+        }
+    }
+}
+
+.ver-lista {
+    position: absolute;
+    top: 100px;
+    right: 20px;
+    z-index: 9999999;
+    font-size: 13px;
 }
 
 @media screen and (min-width: 600px) {
