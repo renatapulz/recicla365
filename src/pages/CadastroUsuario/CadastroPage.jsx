@@ -7,13 +7,29 @@ import { Link } from "react-router-dom";
 import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 
 function CadastroPage() {
-    const { register, handleSubmit, formState: { errors, isSubmitted } } = useForm();
+    const { register, handleSubmit, setValue, getValues, formState: { errors, isSubmitted } } = useForm();
     const { cadastro } = useContext(AuthContext);
 
     const handleSignupSubmit = (data) => {
         const { name, sexo, cpf, nascimento, email, endereco, password } = data;
         cadastro(name, sexo, cpf, nascimento, email, endereco, password);
     };
+
+    const buscarCep = () => {
+        let cep = getValues('cep')
+    
+        if(!!cep && cep.length == 8){
+          fetch(`https://viacep.com.br/ws/${cep}/json/`)
+          .then((res) => res.json())
+          .then(dados => {
+            setValue('bairro', dados.bairro)
+            setValue('logradouro', dados.logradouro)
+            setValue('estado', dados.uf)
+            setValue('cidade', dados.localidade)
+          })
+          .catch(error => console.log(error))
+        }
+      }
 
     return (
         <div>
@@ -53,7 +69,7 @@ function CadastroPage() {
                         <label>Data de Nascimento</label>
                         <input type="text"
                             className="input-forms"
-                            placeholder="xx/xx/xx"
+                            placeholder="Ex: 01/01/1990"
                             {...register("nascimento", { required: true, maxLength: 8 })}></input>
                         {errors.nascimento && errors.nascimento.type === "required" && isSubmitted && (<p className="error-message">Campo obrigatório.</p>)}
                         {errors.nascimento && errors.nascimento.type === "maxLength" && isSubmitted && (<p className="error-message">Por favor, verifique seus dados.</p>)}
@@ -69,18 +85,66 @@ function CadastroPage() {
                         {errors.email && errors.email.type === "pattern" && isSubmitted && (<p className="error-message">Por favor, insira um email válido.</p>)}
                     </div>
                     <div>
-                        <label>Endereço</label>
+                        <label>CEP (apenas números)</label>
+                        <input type="text" className="input-forms"
+                            placeholder="Digite seu CEP"
+                            {...register("cep", { required: true, pattern: /^[0-9]{8}$/, onBlur: () => buscarCep() })} />
+                        {errors.cep && errors.cep.type === "required" && isSubmitted && (<p className="error-message">Campo obrigatório.</p>)}
+                        {errors.cep && errors.cep.type === "pattern" && isSubmitted && (<p className="error-message">Por favor, insira um CEP válido.</p>)}
+                    </div>
+                    <div>
+                        <label>Logradouro</label>
                         <input type="text"
                             className="input-forms"
                             placeholder="Digite seu endereço"
-                            {...register("endereco", { required: true })}></input>
-                        {errors.endereco && errors.endereco.type === "required" && isSubmitted && (<p className="error-message">Campo obrigatório.</p>)}
+                            {...register("logradouro", { required: true, minLength: 5 })} />
+                        {errors.logradouro && errors.logradouro.type === "required" && isSubmitted && (<p className="error-message">Campo obrigatório.</p>)}
+                        {errors.logradouro && errors.logradouro.type === "minLength" && isSubmitted && (<p className="error-message">Por favor, verifique os dados inseridos.</p>)}
+                    </div>
+                    <div>
+                        <label>Número</label>
+                        <input type="number"
+                            className="input-forms"
+                            placeholder="Digite o número"
+                            {...register("numero", { required: true })} />
+                        {errors.numero && errors.numero.type === "required" && isSubmitted && (<p className="error-message">Campo obrigatório.</p>)}
+                    </div>
+                    <div>
+                        <label>Complemento (opcional)</label>
+                        <input type="text"
+                            className="input-forms"
+                            placeholder="Digite o complemento"
+                            {...register("complemento")} />
+                    </div>
+                    <div>
+                        <label>Bairro</label>
+                        <input type="text"
+                            className="input-forms"
+                            placeholder="Digite o nome do bairro"
+                            {...register("bairro", { required: true })} />
+                        {errors.bairro && errors.bairro.type === "required" && isSubmitted && (<p className="error-message">Campo obrigatório.</p>)}
+                    </div>
+                    <div>
+                        <label>Cidade</label>
+                        <input type="text"
+                            className="input-forms"
+                            placeholder="Digite o nome da cidade"
+                            {...register("cidade", { required: true })} />
+                        {errors.cidade && errors.cidade.type === "required" && isSubmitted && (<p className="error-message">Campo obrigatório.</p>)}
+                    </div>
+                    <div>
+                        <label>Estado</label>
+                        <input type="text"
+                            className="input-forms"
+                            placeholder="Digite o nome do estado"
+                            {...register("estado", { required: true })} />
+                        {errors.estado && errors.estado.type === "required" && isSubmitted && (<p className="error-message">Campo obrigatório.</p>)}
                     </div>
                     <div>
                         <label>Senha</label>
                         <input type="password"
                             className="input-forms"
-                            placeholder="Digite seu senha"
+                            placeholder="Digite uma senha"
                             {...register("password", { required: true, maxLength: 8 })}></input>
                         {errors.password && errors.password.type === "required" && isSubmitted && (<p className="error-message">Campo obrigatório.</p>)}
                         {errors.password && errors.password.type === "maxLength" && isSubmitted && (<p className="error-message">A senha não pode ter mais de 8 caracteres.</p>)}

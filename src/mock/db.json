@@ -115,6 +115,26 @@
       "numero": "334",
       "complemento": "",
       "id": 6
+    },
+    {
+      "userId": "3",
+      "nomeLocal": "ponto teste cep",
+      "descricao": "ponto de coleta teste cep",
+      "logradouro": "Rua Salvatina Feliciana dos Santos",
+      "bairro": "Itacorubi",
+      "cidade": "Florianópolis",
+      "estado": "SC",
+      "cep": "88034600",
+      "tiposResiduos": [
+        "Madeira",
+        "Lampadas",
+        "Aluminio"
+      ],
+      "latitude": "-27.4335",
+      "longitude": "-48.5005",
+      "numero": "222",
+      "complemento": "",
+      "id": 7
     }
   ]
 }

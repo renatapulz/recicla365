@@ -8,13 +8,29 @@ import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 import Select from 'react-select';
 
 function CadastroPontoPage() {
-    const { formState: { errors, isSubmitted }, handleSubmit, register, control} = useForm({ defaultValues: {} });
+    const { formState: { errors, isSubmitted }, handleSubmit, register, control, setValue, getValues } = useForm({ defaultValues: {} });
     const { createCollectionPoints } = useContext(CollectionPointContext);
 
     const handleSignupSubmit = (data) => {
         const { nomeLocal, descricao, logradouro, bairro, cidade, estado, cep, tiposResiduos, latitude, longitude, numero, complemento } = data;
         createCollectionPoints(nomeLocal, descricao, logradouro, bairro, cidade, estado, cep, tiposResiduos, latitude, longitude, numero, complemento);
     };
+
+    const buscarCep = () => {
+        let cep = getValues('cep')
+    
+        if(!!cep && cep.length == 8){
+          fetch(`https://viacep.com.br/ws/${cep}/json/`)
+          .then((res) => res.json())
+          .then(dados => {
+            setValue('bairro', dados.bairro)
+            setValue('logradouro', dados.logradouro)
+            setValue('estado', dados.uf)
+            setValue('cidade', dados.localidade)
+          })
+          .catch(error => console.log(error))
+        }
+      }
 
     const options = [
         { value: 'Vidro', label: 'Vidro' },
@@ -35,7 +51,7 @@ function CadastroPontoPage() {
             <div className="container">
                 <form className="form-screen" onSubmit={handleSubmit(handleSignupSubmit)}>
                     <Link to="/gerenciamento"><KeyboardBackspaceIcon className="icon-return" sx={{ fontSize: 50 }} /></Link>
-                    <h3 className="title-register">Cadastro de Ponto de Coleta</h3>
+                    <h3 className="title-register">Cadastro - Ponto de Coleta</h3>
                     <div>
                         <label>Nome</label>
                         <input type="text"
@@ -55,10 +71,10 @@ function CadastroPontoPage() {
                         {errors.descricao && errors.descricao.type === "required" && isSubmitted && (<p className="error-message">Campo obrigatório.</p>)}
                     </div>
                     <div>
-                        <label>CEP</label>
+                        <label>CEP (apenas números)</label>
                         <input type="text" className="input-forms"
                             placeholder="Digite o CEP do ponto de coleta"
-                            {...register("cep", { required: true, pattern: /^[0-9]{8}$/ })} />
+                            {...register("cep", { required: true, pattern: /^[0-9]{8}$/, onBlur: () => buscarCep() })} />
                         {errors.cep && errors.cep.type === "required" && isSubmitted && (<p className="error-message">Campo obrigatório.</p>)}
                         {errors.cep && errors.cep.type === "pattern" && isSubmitted && (<p className="error-message">Por favor, insira um CEP válido.</p>)}
                     </div>
@@ -106,7 +122,7 @@ function CadastroPontoPage() {
                         <label>Estado</label>
                         <input type="text"
                             className="input-forms"
-                            placeholder="Digite o nome da estado"
+                            placeholder="Digite o nome do estado"
                             {...register("estado", { required: true })} />
                         {errors.estado && errors.estado.type === "required" && isSubmitted && (<p className="error-message">Campo obrigatório.</p>)}
                     </div>
@@ -114,7 +130,7 @@ function CadastroPontoPage() {
                         <label>Latitude</label>
                         <input type="text"
                             className="input-forms"
-                            placeholder="Digite a latitude do local"
+                            placeholder="Digite a latitude do ponto de coleta"
                             {...register("latitude", { required: true })} />
                         {errors.latitude && errors.latitude.type === "required" && isSubmitted && (<p className="error-message">Campo obrigatório.</p>)}
                     </div>
@@ -122,7 +138,7 @@ function CadastroPontoPage() {
                         <label>Longitude</label>
                         <input type="text"
                             className="input-forms"
-                            placeholder="Digite a longitude do local"
+                            placeholder="Digite a longitude do ponto de coleta"
                             {...register("longitude", { required: true })} />
                         {errors.longitude && errors.longitude.type === "required" && isSubmitted && (<p className="error-message">Campo obrigatório.</p>)}
                     </div>
