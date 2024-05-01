@@ -1,4 +1,3 @@
-import React from "react";
 import CardPoints from "../../assets/components/card/CardPoints"
 import { useContext, useEffect } from "react";
 import { CollectionPointContext } from "../../hooks/CollectionPointContext.jsx"
