@@ -69,7 +69,7 @@ function CadastroPage() {
                         <label>Data de Nascimento</label>
                         <input type="text"
                             className="input-forms"
-                            placeholder="Ex: 01/01/1990"
+                            placeholder="Ex: 01/01/90"
                             {...register("nascimento", { required: true, maxLength: 8 })}></input>
                         {errors.nascimento && errors.nascimento.type === "required" && isSubmitted && (<p className="error-message">Campo obrigatório.</p>)}
                         {errors.nascimento && errors.nascimento.type === "maxLength" && isSubmitted && (<p className="error-message">Por favor, verifique seus dados.</p>)}
