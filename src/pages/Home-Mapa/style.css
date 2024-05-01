@@ -1,0 +1,25 @@
+.dashboard-summary {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 10px auto;
+}
+
+.card-home {
+    border: 2px solid #ececf1;
+    border-radius: 4px;
+    background-color: #ececf1;
+    padding: 10px;
+    max-width: 400px;
+    margin: 10px 0;
+}
+
+@media screen and (min-width: 600px) {
+    .dashboard-summary {
+        display: flex;
+        flex-direction: row;
+        justify-content:space-evenly;
+        margin: 20px auto;
+    }
+}
