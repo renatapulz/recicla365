@@ -20,12 +20,19 @@ export const CollectionPointContextProvider = ({ children }) => {
             .catch(erro => console.log(erro))
     }
 
+    const getCollectionPointData = (id) => {
+        fetch("http://localhost:3000/collection-points/" + id)
+            .then(response => response.json())
+            .then(dados => setpontoColeta(dados))
+            .catch(erro => console.error('Erro ao obter dados do ponto de coleta:', erro));
+    }
+
     const createCollectionPoints = (nomeLocal, descricao, logradouro, bairro, cidade, estado, cep, tiposResiduos, latitude, longitude, numero, complemento) => {
         const userId = localStorage.getItem("userId");
-        const tiposResiduosString = tiposResiduos.map(tipo => tipo.value);
+        const tiposResiduosValue = tiposResiduos.map(tipo => tipo.value);
         fetch("http://localhost:3000/collection-points", {
             method: "POST",
-            body: JSON.stringify({ userId, nomeLocal, descricao, logradouro, bairro, cidade, estado, cep, tiposResiduos: tiposResiduosString, latitude, longitude, numero, complemento }),
+            body: JSON.stringify({ userId, nomeLocal, descricao, logradouro, bairro, cidade, estado, cep, tiposResiduos: tiposResiduosValue, latitude, longitude, numero, complemento }),
             headers: {
                 'Content-Type': 'application/json',
             },
@@ -87,7 +94,7 @@ export const CollectionPointContextProvider = ({ children }) => {
     }
 
     return (
-        <CollectionPointContext.Provider value={{ pontoColeta, setpontoColeta, createCollectionPoints, getCollectionPoints, getCollectionPointsbyUser, editCollectionPoints, deleteCollectionPoints }}>
+        <CollectionPointContext.Provider value={{ pontoColeta, setpontoColeta, createCollectionPoints, getCollectionPoints, getCollectionPointsbyUser, editCollectionPoints, deleteCollectionPoints, getCollectionPointData }}>
             {children}
         </CollectionPointContext.Provider>
     )

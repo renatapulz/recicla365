@@ -14,7 +14,6 @@ function CadastroPontoPage() {
     const handleSignupSubmit = (data) => {
         const { nomeLocal, descricao, logradouro, bairro, cidade, estado, cep, tiposResiduos, latitude, longitude, numero, complemento } = data;
         createCollectionPoints(nomeLocal, descricao, logradouro, bairro, cidade, estado, cep, tiposResiduos, latitude, longitude, numero, complemento);
-        console.log(data);
     };
 
     const options = [
