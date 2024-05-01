@@ -9,6 +9,7 @@
 .background-header {
     background: #36909A;
     position: relative;
+    z-index: 999999;
 }
 
 .logo {

@@ -97,7 +97,7 @@
     max-width: 210px;
     padding: 0 0 10px 0;
     background: #36909A;
-    box-shadow: 10 0px 69px 0px rgba(0, 0, 0, 0.59);
+    margin: 20px 0 0 -20px;
 }
 
 .menu.menuClose {

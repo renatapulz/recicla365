@@ -7,7 +7,7 @@ import "./style.css";
 import { Link } from "react-router-dom";
 
 function MapHomePage() {
-    const { getUsersLength, userLength } = useContext(AuthContext);
+    const { getUsersLength, userLength, logado } = useContext(AuthContext);
     const { getCollectionPoints, pontoColeta } = useContext(CollectionPointContext);
     const [totalCollectionPoints, setTotalCollectionPoints] = useState(0);
 
@@ -23,16 +23,24 @@ function MapHomePage() {
     }, [pontoColeta]);
 
     return (
-        <div>
-            <div className="dashboard-summary">
-                <div className="card-home">
-                    <h3 className="title-card">Usuários ativos: {userLength}</h3>
-                    <h3 className="title-card">Pontos cadastrados: {totalCollectionPoints}</h3>
-                </div>
-                <Link to="/list"><CustomButton type="submit" buttonText="Ver Pontos em formato de lista" /></Link>
+        <>
+            <div className="pontos-info">
+                { logado ? (
+                <>
+                    <div className="item"><span className="label">Usuários ativos:</span> {userLength}</div>
+                    <div className="item"><span className="label">Pontos cadastrados:</span> {totalCollectionPoints}</div>
+                </>
+                ) : (
+                <>
+                    <div className="item"><span className="label">Pontos cadastrados:</span> {totalCollectionPoints}</div>
+                </>
+                )}
+            </div>
+            <div className="ver-lista">
+                <Link to="/list"><CustomButton type="submit" buttonText="Ver em Lista" /></Link>
             </div>
             <MapaPontos />
-        </div>
+        </>
     );
 }
 

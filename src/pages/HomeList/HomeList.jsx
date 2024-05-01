@@ -15,7 +15,7 @@ function HomeList() {
   return (
     <div className="container">
       <div className="return-map">
-      <Link to="/"><CustomButton type="submit" buttonText="Ver Pontos em formato de mapa"/></Link>
+        <Link to="/"><CustomButton type="submit" buttonText="Ver no mapa"/></Link>
       </div>
     {Array.isArray(pontoColeta) && pontoColeta.length > 0 && pontoColeta.map((ponto, index) => (
       delete ponto.userId,
