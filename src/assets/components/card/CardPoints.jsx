@@ -43,7 +43,7 @@ CardPoints.propTypes = {
     bairro: PropTypes.string.isRequired,
     cidade: PropTypes.string.isRequired,
     estado: PropTypes.string.isRequired,
-    numero: PropTypes.number.isRequired,
+    numero: PropTypes.string.isRequired,
     complemento: PropTypes.string,
     cep: PropTypes.string.isRequired,
     tiposResiduos: PropTypes.array.isRequired,

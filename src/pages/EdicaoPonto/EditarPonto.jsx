@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { CollectionPointContext } from '../../hooks/CollectionPointContext';
 import CustomButton from "../../assets/components/buttom/buttom";
 import { useForm, Controller } from "react-hook-form";
@@ -7,44 +7,68 @@ import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 import Select from 'react-select';
 
 function EditarPonto() {
-  const { formState: { errors, isSubmitted }, handleSubmit, register, control, setValue, getValues } = useForm({ defaultValues: {} });
     const { pontoColeta, editCollectionPoints } = useContext(CollectionPointContext);
+    const { formState: { errors, isSubmitted }, handleSubmit, register, control, setValue, getValues } = useForm({ defaultValues: {} });
+
+    useEffect(() => {
+        if (pontoColeta) {
+            setValue('nomeLocal', pontoColeta.nomeLocal);
+            setValue('descricao', pontoColeta.descricao);
+            setValue('logradouro', pontoColeta.logradouro);
+            setValue('bairro', pontoColeta.bairro);
+            setValue('cidade', pontoColeta.cidade);
+            setValue('estado', pontoColeta.estado);
+            setValue('cep', pontoColeta.cep);
+            setValue('latitude', pontoColeta.latitude);
+            setValue('longitude', pontoColeta.longitude);
+            setValue('numero', pontoColeta.numero);
+            setValue('complemento', pontoColeta.complemento);
+            if (pontoColeta.tiposResiduos) {
+                const tiposResiduosForm = pontoColeta.tiposResiduos.map(tipo => ({
+                    value: tipo,
+                    label: tipo
+                }));
+                setValue('tiposResiduos', tiposResiduosForm);
+            }
+        }
+    }, [pontoColeta, setValue]);
 
     const handleEditSubmit = (data) => {
-      const { nomeLocal, descricao, logradouro, bairro, cidade, estado, cep, tiposResiduos, latitude, longitude, numero, complemento } = data;
-      editCollectionPoints(nomeLocal, descricao, logradouro, bairro, cidade, estado, cep, tiposResiduos, latitude, longitude, numero, complemento);
-        console.log(data);
-  };
+        const pontoId = pontoColeta.id;
+        const userId = pontoColeta.userId;
+        const { nomeLocal, descricao, logradouro, bairro, cidade, estado, cep, tiposResiduos, latitude, longitude, numero, complemento } = data;
+        editCollectionPoints(pontoId, userId, nomeLocal, descricao, logradouro, bairro, cidade, estado, cep, tiposResiduos, latitude, longitude, numero, complemento);
+    };
 
-  const buscarCep = () => {
-    let cep = getValues('cep')
+    const buscarCep = () => {
+        let cep = getValues('cep')
 
-    if(!!cep && cep.length == 8){
-      fetch(`https://viacep.com.br/ws/${cep}/json/`)
-      .then((res) => res.json())
-      .then(dados => {
-        setValue('bairro', dados.bairro)
-        setValue('logradouro', dados.logradouro)
-        setValue('estado', dados.uf)
-        setValue('cidade', dados.localidade)
-      })
-      .catch(error => console.log(error))
+        if (!!cep && cep.length === 8) {
+            fetch(`https://viacep.com.br/ws/${cep}/json/`)
+            .then((res) => res.json())
+            .then(dados => {
+                setValue('bairro', dados.bairro)
+                setValue('logradouro', dados.logradouro)
+                setValue('estado', dados.uf)
+                setValue('cidade', dados.localidade)
+            })
+            .catch(error => console.log(error))
+        }
     }
-  }
 
-  const options = [
-      { value: 'Vidro', label: 'Vidro' },
-      { value: 'Madeira', label: 'Madeira' },
-      { value: 'Papel', label: 'Papel e Papelão' },
-      { value: 'Aluminio', label: 'Alumínio' },
-      { value: 'Oleo', label: 'Óleo' },
-      { value: 'Pilha', label: 'Pilhas' },
-      { value: 'Lampadas', label: 'Lâmpadas' },
-      { value: 'Eletronicos', label: 'Eletrônicos' },
-      { value: 'Hospitar', label: 'Lixo hospitalar' },
-      { value: 'Nao-reciclavel', label: 'Material não reciclável' },
-      { value: 'Material-construcao', label: 'Material de construção' }
-  ];
+    const options = [
+        { value: 'Vidro', label: 'Vidro' },
+        { value: 'Madeira', label: 'Madeira' },
+        { value: 'Papel', label: 'Papel e Papelão' },
+        { value: 'Aluminio', label: 'Alumínio' },
+        { value: 'Oleo', label: 'Óleo' },
+        { value: 'Pilha', label: 'Pilhas' },
+        { value: 'Lampadas', label: 'Lâmpadas' },
+        { value: 'Eletronicos', label: 'Eletrônicos' },
+        { value: 'Hospitar', label: 'Lixo hospitalar' },
+        { value: 'Nao-reciclavel', label: 'Material não reciclável' },
+        { value: 'Material-construcao', label: 'Material de construção' }
+    ];
 
     return (
       <div>
@@ -56,9 +80,8 @@ function EditarPonto() {
                         <label>Nome</label>
                         <input type="text"
                             className="input-forms"
-                            defaultValue={pontoColeta.nomeLocal}
                             placeholder="Nome do local de coleta"
-                            {...register("nomeLocal", { required: true, minLength: 3, maxLength: 50 })} />
+                            {...register("nomeLocal", { required: isSubmitted ? true : false, minLength: 3, maxLength: 50 })} />
                         {errors.nomeLocal && errors.nomeLocal.type === "required" && isSubmitted && (<p className="error-message">Campo obrigatório.</p>)}
                         {errors.nomeLocal && errors.nomeLocal.type === "maxLength" && isSubmitted && (<p className="error-message">O nome não pode ter mais de 50 caracteres.</p>)}
                         {errors.nomeLocal && errors.nomeLocal.type === "minLength" && isSubmitted && (<p className="error-message">Por favor, verifique os dados inseridos.</p>)}
@@ -67,18 +90,16 @@ function EditarPonto() {
                         <label>Descrição</label>
                         <input type="text"
                             className="input-forms"
-                            defaultValue={pontoColeta.descricao}
                             placeholder="Descrição do local"
-                            {...register("descricao", { required: true })} />
+                            {...register("descricao", { required: isSubmitted ? true : false })} />
                         {errors.descricao && errors.descricao.type === "required" && isSubmitted && (<p className="error-message">Campo obrigatório.</p>)}
                     </div>
                     <div>
                         <label>CEP (apenas números)</label>
                         <input type="text" 
                             className="input-forms"
-                            defaultValue={pontoColeta.cep}
                             placeholder="Digite o CEP do ponto de coleta"
-                            {...register("cep", { required: true, pattern: /^[0-9]{8}$/, onBlur: () => buscarCep()  })} />
+                            {...register("cep", { required: isSubmitted ? true : false, pattern: /^[0-9]{8}$/, onBlur: () => buscarCep()  })} />
                         {errors.cep && errors.cep.type === "required" && isSubmitted && (<p className="error-message">Campo obrigatório.</p>)}
                         {errors.cep && errors.cep.type === "pattern" && isSubmitted && (<p className="error-message">Por favor, insira um CEP válido.</p>)}
                     </div>
@@ -86,26 +107,23 @@ function EditarPonto() {
                         <label>Logradouro</label>
                         <input type="text"
                             className="input-forms"
-                            defaultValue={pontoColeta.logradouro}
                             placeholder="Digite o endereço"
-                            {...register("logradouro", { required: true, minLength: 5 })} />
+                            {...register("logradouro", { required: isSubmitted ? true : false, minLength: 5 })} />
                         {errors.logradouro && errors.logradouro.type === "required" && isSubmitted && (<p className="error-message">Campo obrigatório.</p>)}
                         {errors.logradouro && errors.logradouro.type === "minLength" && isSubmitted && (<p className="error-message">Por favor, verifique os dados inseridos.</p>)}
                     </div>
                     <div>
                         <label>Número</label>
-                        <input type="number"
+                        <input type="text"
                             className="input-forms"
-                            defaultValue={pontoColeta.numero}
                             placeholder="Digite o número"
-                            {...register("numero", { required: true })} />
+                            {...register("numero", { required: isSubmitted ? true : false })} />
                         {errors.numero && errors.numero.type === "required" && isSubmitted && (<p className="error-message">Campo obrigatório.</p>)}
                     </div>
                     <div>
                         <label>Complemento (opcional)</label>
                         <input type="text"
                             className="input-forms"
-                            defaultValue={pontoColeta.complemento ? pontoColeta.complemento : ''}
                             placeholder="Digite o complemento"
                             {...register("complemento")} />
                     </div>
@@ -113,45 +131,40 @@ function EditarPonto() {
                         <label>Bairro</label>
                         <input type="text"
                             className="input-forms"
-                            defaultValue={pontoColeta.bairro}
                             placeholder="Digite o nome do bairro"
-                            {...register("bairro", { required: true })} />
+                            {...register("bairro", { required: isSubmitted ? true : false })} />
                         {errors.bairro && errors.bairro.type === "required" && isSubmitted && (<p className="error-message">Campo obrigatório.</p>)}
                     </div>
                     <div>
                         <label>Cidade</label>
                         <input type="text"
                             className="input-forms"
-                            defaultValue={pontoColeta.cidade}
                             placeholder="Digite o nome da cidade"
-                            {...register("cidade", { required: true })} />
+                            {...register("cidade", { required: isSubmitted ? true : false })} />
                         {errors.cidade && errors.cidade.type === "required" && isSubmitted && (<p className="error-message">Campo obrigatório.</p>)}
                     </div>
                     <div>
                         <label>Estado</label>
                         <input type="text"
                             className="input-forms"
-                            defaultValue={pontoColeta.estado}
                             placeholder="Digite o nome do estado"
-                            {...register("estado", { required: true })} />
+                            {...register("estado", { required: isSubmitted ? true : false })} />
                         {errors.estado && errors.estado.type === "required" && isSubmitted && (<p className="error-message">Campo obrigatório.</p>)}
                     </div>
                     <div>
                         <label>Latitude</label>
                         <input type="text"
                             className="input-forms"
-                            defaultValue={pontoColeta.latitude}
                             placeholder="Digite a latitude do ponto de coleta"
-                            {...register("latitude", { required: true })} />
+                            {...register("latitude", { required: isSubmitted ? true : false })} />
                         {errors.latitude && errors.latitude.type === "required" && isSubmitted && (<p className="error-message">Campo obrigatório.</p>)}
                     </div>
                     <div>
                         <label>Longitude</label>
                         <input type="text"
                             className="input-forms"
-                            defaultValue={pontoColeta.longitude}
                             placeholder="Digite a longitude do ponto de coleta"
-                            {...register("longitude", { required: true })} />
+                            {...register("longitude", { required: isSubmitted ? true : false })} />
                         {errors.longitude && errors.longitude.type === "required" && isSubmitted && (<p className="error-message">Campo obrigatório.</p>)}
                     </div>
                     <div>
@@ -159,7 +172,7 @@ function EditarPonto() {
                         <Controller
                             name="tiposResiduos"
                             control={control}
-                            rules={{ required: true }}
+                            rules={{ required: isSubmitted ? true : false }}
                             render={({ field }) => (
                                 <Select
                                     {...field}
