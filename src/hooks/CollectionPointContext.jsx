@@ -51,10 +51,11 @@ export const CollectionPointContextProvider = ({ children }) => {
             });
     };
 
-    const editCollectionPoints = (id, updatedData) => {
+    const editCollectionPoints = (id, userId, nomeLocal, descricao, logradouro, bairro, cidade, estado, cep, tiposResiduos, latitude, longitude, numero, complemento) => {
+        const tiposResiduosValue = tiposResiduos.map(tipo => tipo.value);
         fetch("http://localhost:3000/collection-points/" + id, {
             method: "PUT",
-            body: JSON.stringify(updatedData),
+            body: JSON.stringify({userId, nomeLocal, descricao, logradouro, bairro, cidade, estado, cep, tiposResiduos: tiposResiduosValue, latitude, longitude, numero, complemento}),
             headers: {
                 'Content-Type': 'application/json',
             },

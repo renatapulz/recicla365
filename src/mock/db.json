@@ -29,97 +29,90 @@
       "endereco": "Avenida Buriti, 125",
       "password": "123",
       "id": 3
+    },
+    {
+      "name": "Bruno Costa",
+      "sexo": "Masculino",
+      "cpf": "321.430.500-03",
+      "nascimento": "01/01/90",
+      "email": "bruno@example.com",
+      "password": "123456",
+      "id": 4
+    },
+    {
+      "name": "Danielly Kammers",
+      "sexo": "Feminino",
+      "cpf": "848.137.100-93",
+      "nascimento": "10/10/20",
+      "email": "danielly@example.com",
+      "password": "teste123",
+      "id": 5
     }
   ],
   "collection-points": [
     {
       "userId": "2",
-      "nomeLocal": "ponto trind",
+      "nomeLocal": "Ponto Trindade",
       "descricao": "Ponto de coleta na trindade",
-      "logradouro": "Avenida Buriti",
+      "logradouro": "Rua Lauro Linhares",
       "bairro": "Trindade",
       "cidade": "Florianópolis",
-      "estado": "Santa Catarina",
-      "cep": "88035500",
+      "estado": "SC",
+      "cep": "88036002",
       "tiposResiduos": [
-        "Pilha",
-        "Madeira"
+        "Hospitar"
       ],
-      "latitude": "-27.5920747",
-      "longitude": "-48.4982794",
+      "latitude": "-27.601369",
+      "longitude": " -48.524831",
       "numero": "125",
-      "complemento": "casa amarela",
+      "complemento": "Ao lado da Mix ",
       "id": 3
     },
     {
       "userId": "1",
-      "nomeLocal": "ponto teste",
-      "descricao": "blbabla",
-      "logradouro": "rua bla",
-      "bairro": "compeche",
+      "nomeLocal": "Ponto Campeche",
+      "descricao": "Ponto de coleta do Campeche",
+      "logradouro": "Avenida Pequeno Príncipe",
+      "bairro": "Campeche",
       "cidade": "Florianópolis",
       "estado": "SC",
-      "cep": "88034500",
-      "tiposResiduos": [
-        "Pilha"
-      ],
-      "latitude": "-27.6667",
-      "longitude": "-48.4833",
-      "numero": "33",
-      "complemento": "vdvvdf",
-      "id": 4
-    },
-    {
-      "userId": "1",
-      "nomeLocal": "Ponto Ingleses",
-      "descricao": "kjskncscjscjdncks",
-      "logradouro": "rua bla",
-      "bairro": "compeche",
-      "cidade": "Florianópolis",
-      "estado": "SC",
-      "cep": "88034500",
+      "cep": "88063000",
       "tiposResiduos": [
         "Papel",
-        "Lampadas",
-        "Eletronicos",
-        "Hospitar",
-        "Material-construcao",
-        "Pilha",
-        "Aluminio",
-        "Madeira",
-        "Vidro",
-        "Oleo"
+        "Pilha"
       ],
-      "latitude": "-27.4473",
-      "longitude": "-48.3889",
+      "latitude": "-27.693448",
+      "longitude": "-48.499860",
       "numero": "33",
-      "complemento": "vdvvdf",
+      "complemento": "",
       "id": 5
     },
     {
       "userId": "1",
-      "nomeLocal": "ponto Canas",
-      "descricao": "Ponto de coleta em Canaasvieiras",
-      "logradouro": "rua blablablabla",
-      "bairro": "canasvieiras",
+      "nomeLocal": "Ponto Canasvieiras",
+      "descricao": "Ponto de coleta em Canasvieiras",
+      "logradouro": "Rua Desembargador Maurílio Coimbra",
+      "bairro": "Canasvieiras",
       "cidade": "Florianópolis",
       "estado": "SC",
-      "cep": "88034500",
+      "cep": "88054080",
       "tiposResiduos": [
         "Vidro",
-        "Madeira",
-        "Papel"
+        "Aluminio",
+        "Oleo",
+        "Material-construcao",
+        "Nao-reciclavel"
       ],
-      "latitude": "-27.4351",
-      "longitude": "-48.4841",
+      "latitude": "-27.435783",
+      "longitude": "-48.453218",
       "numero": "334",
       "complemento": "",
       "id": 6
     },
     {
       "userId": "3",
-      "nomeLocal": "ponto teste cep",
-      "descricao": "ponto de coleta teste cep",
+      "nomeLocal": "Ponto Itacorubi",
+      "descricao": "Ponto de coleta no Itacorubi",
       "logradouro": "Rua Salvatina Feliciana dos Santos",
       "bairro": "Itacorubi",
       "cidade": "Florianópolis",
@@ -130,11 +123,49 @@
         "Lampadas",
         "Aluminio"
       ],
-      "latitude": "-27.4335",
-      "longitude": "-48.5005",
+      "latitude": "-27.5874",
+      "longitude": "-48.5175",
       "numero": "222",
       "complemento": "",
       "id": 7
+    },
+    {
+      "userId": "4",
+      "nomeLocal": "Ponto São José",
+      "descricao": "Ponto de Coleta em São José",
+      "logradouro": "Rua Sebastiana F. de Souza",
+      "bairro": "Fazenda Santo Antônio",
+      "cidade": "São José",
+      "estado": "SC",
+      "cep": "88104550",
+      "tiposResiduos": [
+        "Papel",
+        "Pilha",
+        "Aluminio"
+      ],
+      "latitude": "-27.6136",
+      "longitude": "-48.6256",
+      "numero": "20",
+      "complemento": "",
+      "id": 8
+    },
+    {
+      "userId": "5",
+      "nomeLocal": "Ponto Centro",
+      "descricao": "Ponto de coleta no centro",
+      "logradouro": "Rua Francisco Tolentino",
+      "bairro": "Centro",
+      "cidade": "Florianópolis",
+      "estado": "SC",
+      "cep": "88010200",
+      "tiposResiduos": [
+        "Lampadas"
+      ],
+      "latitude": "-27.597300",
+      "longitude": "-48.549610",
+      "numero": "332",
+      "complemento": "",
+      "id": 9
     }
   ]
 }
