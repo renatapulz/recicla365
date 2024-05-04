@@ -51,7 +51,7 @@ export const AuthContextProvider = ({ children }) => {
   };
   
 
-const cadastro = (name, sexo, cpf, nascimento, email, endereco, password) => {
+const cadastro = (name, sexo, cpf, nascimento, email, cep, logradouro, numero, complemento, bairro, cidade, estado, password) => {
   fetch("http://localhost:3000/users")
     .then(response => response.json())
     .then(dados => {
@@ -62,7 +62,7 @@ const cadastro = (name, sexo, cpf, nascimento, email, endereco, password) => {
       }
       return fetch("http://localhost:3000/users", {
         method: "POST",
-        body: JSON.stringify({ name, sexo, cpf, nascimento, email, endereco, password }),
+        body: JSON.stringify({ name, sexo, cpf, nascimento, email, cep, logradouro, numero, complemento, bairro, cidade, estado, password }),
         headers: {
            'Content-Type': 'application/json',
         },
