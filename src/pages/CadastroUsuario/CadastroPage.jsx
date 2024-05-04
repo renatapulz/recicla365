@@ -11,8 +11,8 @@ function CadastroPage() {
     const { cadastro } = useContext(AuthContext);
 
     const handleSignupSubmit = (data) => {
-        const { name, sexo, cpf, nascimento, email, endereco, password } = data;
-        cadastro(name, sexo, cpf, nascimento, email, endereco, password);
+        const { name, sexo, cpf, nascimento, email, cep, logradouro, numero, complemento, bairro, cidade, estado, password } = data;
+        cadastro(name, sexo, cpf, nascimento, email, cep, logradouro, numero, complemento, bairro, cidade, estado, password);
     };
 
     const buscarCep = () => {
@@ -103,7 +103,7 @@ function CadastroPage() {
                     </div>
                     <div>
                         <label>Número</label>
-                        <input type="number"
+                        <input type="string"
                             className="input-forms"
                             placeholder="Digite o número"
                             {...register("numero", { required: true })} />
