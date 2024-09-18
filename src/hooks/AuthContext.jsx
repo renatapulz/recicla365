@@ -1,4 +1,5 @@
 import { createContext, useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const AuthContext = createContext();
 
@@ -6,6 +7,7 @@ export const AuthContextProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [logado, setLogado] = useState(false);
   const [userLength, setUserLength] = useState();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const userId = localStorage.getItem("userId");
@@ -16,89 +18,89 @@ export const AuthContextProvider = ({ children }) => {
 
   }, []);
 
-  const getUsersLength = () => {
-    fetch("http://localhost:3000/users")
-        .then(response => response.json())
-        .then(dados => {setUserLength(dados.length)})
-        .catch(erro => console.log(erro));
-}
+  const getUsersLength = async () => {
+    try {
+      const response = await fetch("http://localhost:3000/users");
+      const dados = await response.json();
+      setUserLength(dados.length);
+    } catch (error) {
+      console.error("Erro ao buscar o número de usuários:", error);
+    }
+  };
 
   const login = async (email, password) => {
     try {
       const response = await fetch("http://localhost:3000/users");
       const dados = await response.json();
       
-      let usuarioExiste = false;
-      dados.forEach(user => {
-        if(user.email === email) {
-          usuarioExiste = true;
-          if (user.password === password) {
-            localStorage.setItem("userId", user.id);
-            setLogado(true);
-            window.location.href = "/gerenciamento";
-          } else {
-            alert("Senha incorreta!");
-          }
+      const user = dados.find(user => user.email === email);
+      
+      if (user) {
+        if (user.password === password) {
+          localStorage.setItem("userId", user.id);
+          setUser(user.id);
+          setLogado(true);
+          navigate("/gerenciamento");
+        } else {
+          alert("Senha incorreta!");
         }
-      });
-  
-      if (!usuarioExiste) {
+      } else {
         alert("Usuário não cadastrado.");
       }
     } catch (error) {
       console.error("Erro ao buscar usuários:", error);
     }
   };
-  
 
-const cadastro = (name, sexo, cpf, nascimento, email, cep, logradouro, numero, complemento, bairro, cidade, estado, password) => {
-  fetch("http://localhost:3000/users")
-    .then(response => response.json())
-    .then(dados => {
+  const cadastro = async (name, sexo, cpf, nascimento, email, cep, logradouro, numero, complemento, bairro, cidade, estado, password) => {
+    try {
+      const response = await fetch("http://localhost:3000/users");
+      const dados = await response.json();
       const user = dados.find(user => user.cpf === cpf || user.email === email);
+      
       if (user) {
         alert("Email ou CPF já cadastrados.");
         return;
       }
-      return fetch("http://localhost:3000/users", {
+      
+      const newUser = {
+        name, sexo, cpf, nascimento, email, cep, logradouro, numero, complemento, bairro, cidade, estado, password
+      };
+      
+      const result = await fetch("http://localhost:3000/users", {
         method: "POST",
-        body: JSON.stringify({ name, sexo, cpf, nascimento, email, cep, logradouro, numero, complemento, bairro, cidade, estado, password }),
+        body: JSON.stringify(newUser),
         headers: {
            'Content-Type': 'application/json',
         },
-       })
-      .then(response => {
-        if (response.ok) {
-          alert("Usuário cadastrado com sucesso! Por favor, efetue o login.");
-          window.location.href = "/login";
-        } else {
-          throw new Error("Erro ao cadastrar usuário!");
-        }
-      })
-      .catch(error => {
-        console.error("Erro ao cadastrar usuário:", error.message);
-        alert("Erro ao cadastrar usuário!");
       });
-    })
-    .catch(error => {
+      
+      if (result.ok) {
+        alert("Usuário cadastrado com sucesso! Por favor, efetue o login.");
+        navigate("/login");
+      } else {
+        throw new Error("Erro ao cadastrar usuário!");
+      }
+    } catch (error) {
       console.error("Erro ao tentar cadastrar:", error.message);
       alert("Erro ao tentar cadastrar. Tente novamente.");
-    });
-};
+    }
+  };
 
-const logout = () => {
-  setLogado(false);
-  setUser(null);
-  localStorage.removeItem("userId");
-};
+  const logout = () => {
+    setLogado(false);
+    setUser(null);
+    localStorage.removeItem("userId");
+    navigate("/login"); // Redireciona para a página de login após o logout
+  };
 
-const isLoggedIn = () => {
-  return logado;
-};
+  const isLoggedIn = () => {
+    return logado;
+  };
 
-return (
-  <AuthContext.Provider value={{ user, logado, setLogado, login, logout, isLoggedIn, cadastro, getUsersLength, userLength }}>
-    {children}
-  </AuthContext.Provider>
-)
-}
+  return (
+    <AuthContext.Provider value={{ user, logado, setLogado, login, logout, isLoggedIn, cadastro, getUsersLength, userLength }}>
+      {children}
+    </AuthContext.Provider>
+  );
+};

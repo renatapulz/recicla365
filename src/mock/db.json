@@ -79,6 +79,38 @@
       "estado": "SC",
       "password": "teste123",
       "id": 5
+    },
+    {
+      "name": "tiago testes",
+      "sexo": "Masculino",
+      "cpf": "057.970.500-56",
+      "nascimento": "10/10/90",
+      "email": "tiago@example.com",
+      "cep": "88058700",
+      "logradouro": "Estrada Vereador Onildo Lemos",
+      "numero": "111",
+      "complemento": "",
+      "bairro": "Ingleses do Rio Vermelho",
+      "cidade": "Florianópolis",
+      "estado": "SC",
+      "password": "teste123",
+      "id": 6
+    },
+    {
+      "name": "teste",
+      "sexo": "Feminino",
+      "cpf": "586.082.340-17",
+      "nascimento": "10102000",
+      "email": "teste@example.com",
+      "cep": "88034500",
+      "logradouro": "Avenida Buriti",
+      "numero": "23",
+      "complemento": "apto 901",
+      "bairro": "Itacorubi",
+      "cidade": "Florianópolis",
+      "estado": "SC",
+      "password": "123",
+      "id": 7
     }
   ],
   "collection-points": [
@@ -102,25 +134,6 @@
     },
     {
       "userId": "1",
-      "nomeLocal": "Ponto Campeche",
-      "descricao": "Ponto de coleta do Campeche",
-      "logradouro": "Avenida Pequeno Príncipe",
-      "bairro": "Campeche",
-      "cidade": "Florianópolis",
-      "estado": "SC",
-      "cep": "88063000",
-      "tiposResiduos": [
-        "Papel",
-        "Pilha"
-      ],
-      "latitude": "-27.693448",
-      "longitude": "-48.499860",
-      "numero": "33",
-      "complemento": "",
-      "id": 5
-    },
-    {
-      "userId": "1",
       "nomeLocal": "Ponto Canasvieiras",
       "descricao": "Ponto de coleta em Canasvieiras",
       "logradouro": "Rua Desembargador Maurílio Coimbra",
@@ -133,11 +146,12 @@
         "Aluminio",
         "Oleo",
         "Material-construcao",
-        "Nao-reciclavel"
+        "Nao-reciclavel",
+        "Papel"
       ],
       "latitude": "-27.435783",
       "longitude": "-48.453218",
-      "numero": "334",
+      "numero": "3343",
       "complemento": "",
       "id": 6
     },
@@ -198,6 +212,24 @@
       "numero": "332",
       "complemento": "",
       "id": 9
+    },
+    {
+      "userId": "7",
+      "nomeLocal": "Ponto São José",
+      "descricao": "Ponto teste",
+      "logradouro": "Rua Antônio Alfredo da Silva",
+      "bairro": "Fazenda Santo Antônio",
+      "cidade": "São José",
+      "estado": "SC",
+      "cep": "88104500",
+      "tiposResiduos": [
+        "Oleo"
+      ],
+      "latitude": "-27.5920747",
+      "longitude": "-46.666559",
+      "numero": "20",
+      "complemento": "ao lado do hospital X",
+      "id": 10
     }
   ]
 }
